@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo SFLCAR</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f3f3f3; padding: 20px; }
+    h1 { text-align: center; color: #222; }
+    .produto { background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .produto label { display: flex; justify-content: space-between; align-items: center; font-size: 18px; }
+    button { display: block; width: 100%; padding: 15px; font-size: 18px; border: none; border-radius: 10px; background-color: #25D366; color: white; cursor: pointer; margin-top: 20px; }
+    button:hover { background-color: #1da851; }
+  </style>
+</head>
+<body>
+  <h1>Catálogo SFLCAR</h1>  <div class="produto">
+    <label><input type="checkbox" value="Insulfilme G20 - R$120"> Insulfilme G20 - R$120</label>
+  </div>
+  <div class="produto">
+    <label><input type="checkbox" value="Insulfilme G5 - R$130"> Insulfilme G5 - R$130</label>
+  </div>
+  <div class="produto">
+    <label><input type="checkbox" value="Envelopamento Preto Fosco - R$200"> Envelopamento Preto Fosco - R$200</label>
+  </div>
+  <div class="produto">
+    <label><input type="checkbox" value="Envelopamento Azul Brilhante - R$250"> Envelopamento Azul Brilhante - R$250</label>
+  </div><button onclick="enviarPedido()">Finalizar Pedido no WhatsApp</button>
+
+  <script>
+    function enviarPedido() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      if (checkboxes.length === 0) {
+        alert('Escolhe pelo menos um produto, paizão!');
+        return;
+      }
+      let pedido = 'Quero fazer um pedido na SFLCAR:\n';
+      checkboxes.forEach(item => pedido += - ${item.value}\n);
+      const mensagem = encodeURIComponent(pedido);
+      const numero = '5562993117821'; // zap do paizão
+      window.open(https://wa.me/${numero}?text=${mensagem}, '_blank');
+    }
+  </script></body>
+</html>
