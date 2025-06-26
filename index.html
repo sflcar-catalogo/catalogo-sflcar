@@ -20,7 +20,6 @@
     body {
       font-family: 'Roboto', sans-serif;
       background-color: var(--cor-fundo);
-      background-image: linear-gradient(180deg, #e9f5ee 0%, var(--cor-fundo) 100%);
       margin: 0;
       padding: 20px;
       display: flex;
@@ -79,24 +78,28 @@
       cursor: pointer;
     }
 
+    /* ESTILO APLICADO AO LINK PARA PARECER UM BOTÃO */
     .finalizar-btn {
       display: block;
       width: 100%;
       padding: 18px;
       font-size: 18px;
       font-weight: 500;
-      border: none;
       border-radius: 10px;
       background-color: var(--cor-primaria);
       color: white;
       cursor: pointer;
       margin-top: 30px;
+      text-align: center;
+      text-decoration: none; /* Remove o sublinhado do link */
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      box-sizing: border-box;
     }
 
     .finalizar-btn:hover {
       background-color: var(--cor-primaria-hover);
+      color: white; /* Garante que a cor do texto não mude no hover */
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
     }
@@ -134,43 +137,46 @@
       <label for="prod4">Envelopamento Azul Brilhante - R$250</label>
     </div>
 
-    <button class="finalizar-btn" onclick="enviarPedido()">Finalizar Pedido no WhatsApp</button>
+    <a href="#" class="finalizar-btn" onclick="prepararLink(this, event)" target="_blank" rel="noopener noreferrer">Finalizar Pedido no WhatsApp</a>
     
     <div class="footer">
-        © 2024 SFLCAR - Todos os direitos reservados.
+        © 2025 SFLCAR - Todos os direitos reservados.
     </div>
   </div>
 
   <script>
-    function enviarPedido() {
+    function prepararLink(linkElement, event) {
+      // 1. Encontra os itens selecionados
       const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      
+      // 2. Se nada for selecionado, mostra um alerta e cancela o clique no link
       if (checkboxes.length === 0) {
         alert('Por favor, selecione pelo menos um produto para continuar.');
+        event.preventDefault(); // Impede o link de ser seguido
         return;
       }
 
+      // 3. Monta a mensagem e calcula o total (mesma lógica de antes)
       let pedido = 'Olá! Gostaria de fazer um orçamento na SFLCAR com os seguintes itens:\n\n';
       let valorTotal = 0;
-
       checkboxes.forEach(item => {
-        // Adiciona o item à lista do pedido
         pedido += • ${item.value}\n;
-
-        // Extrai o valor numérico do produto usando uma expressão regular
         const resultado = item.value.match(/R\$(\d+)/);
         if (resultado && resultado[1]) {
           valorTotal += parseInt(resultado[1], 10);
         }
       });
-
-      // Adiciona o total formatado à mensagem
       pedido += \n*Total estimado: R$${valorTotal.toFixed(2).replace('.', ',')}*;
 
+      // 4. Prepara a URL final
       const mensagem = encodeURIComponent(pedido);
-      const numero = '5562993117821'; // Número de WhatsApp de destino
+      const numero = '5562993117821';
+      const urlFinal = https://wa.me/${numero}?text=${mensagem};
       
-      // Abre a janela do WhatsApp
-      window.open(https://wa.me/${numero}?text=${mensagem}, '_blank');
+      // 5. ATRIBUI A URL GERADA AO PRÓPRIO LINK QUE FOI CLICADO
+      linkElement.href = urlFinal;
+
+      // O link agora tem a URL correta e o navegador seguirá para ela normalmente.
     }
   </script>
 
