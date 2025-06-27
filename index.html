@@ -4,36 +4,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo SFLCAR</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f3f3f3; padding: 20px; }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f3f3f3; padding: 20px; margin: 0; }
     h1 { text-align: center; color: #222; margin-bottom: 5px; }
     h2 { text-align: center; font-size: 16px; margin-top: 0; color: #666; }
     .logo { display: block; margin: 0 auto 10px; max-width: 150px; }
-    .produto { background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .produto label { display: flex; justify-content: space-between; align-items: center; font-size: 18px; }
-    .produto img { max-width: 100%; border-radius: 8px; margin-top: 10px; }
-    textarea { width: 100%; height: 80px; margin-top: 15px; padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; resize: none; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .produto { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between; }
+    .produto label { font-size: 18px; margin-bottom: 10px; }
+    .produto img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
+    textarea { width: 100%; height: 80px; margin-top: 20px; padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; resize: none; }
     button { display: block; width: 100%; padding: 15px; font-size: 18px; border: none; border-radius: 10px; background-color: #25D366; color: white; cursor: pointer; margin-top: 20px; }
     button:hover { background-color: #1da851; }
   </style>
 </head>
 <body>
-  <img src="img/logo.jpg" alt="Logo SFLCAR" class="logo">
+  <img src="https://i.imgur.com/zFq6Szm.png" alt="Logo SFLCAR" class="logo">
   <h1>Catálogo SFLCAR</h1>
-  <h2>Escolha o que você quer e finalize pelo WhatsApp</h2>  <div class="produto">
-    <label><input type="checkbox" value="Insulfilme G20 - R$120"> Insulfilme G20 - R$120</label>
-    <img src="https://i.imgur.com/MW7bd7r.jpg" alt="Insulfilme G20">
-  </div>
-  <div class="produto">
-    <label><input type="checkbox" value="Insulfilme G5 - R$130"> Insulfilme G5 - R$130</label>
-    <img src="https://i.imgur.com/FzfgVNC.jpg" alt="Insulfilme G5">
-  </div>
-  <div class="produto">
-    <label><input type="checkbox" value="Envelopamento Preto Fosco - R$200"> Envelopamento Preto Fosco - R$200</label>
-    <img src="img/pretof.jpeg" alt="Preto Fosco">
-  </div>
-  <div class="produto">
-    <label><input type="checkbox" value="Envelopamento Azul Brilhante - R$250"> Envelopamento Azul Brilhante - R$250</label>
-    <img src="img/azulb.jpeg" alt="Azul Brilhante">
+  <h2>Escolha os produtos e finalize seu pedido no WhatsApp</h2>  <div class="grid">
+    <div class="produto">
+      <label><input type="checkbox" value="Insulfilme G20 - R$120"> Insulfilme G20 - R$120</label>
+      <img src="img/g20.jpg" alt="Insulfilme G20">
+    </div>
+    <div class="produto">
+      <label><input type="checkbox" value="Insulfilme G5 - R$130"> Insulfilme G5 - R$130</label>
+      <img src="img/g5.jpg" alt="Insulfilme G5">
+    </div>
+    <div class="produto">
+      <label><input type="checkbox" value="Envelopamento Preto Fosco - R$200"> Envelopamento Preto Fosco - R$200</label>
+      <img src="img/pretof.jpeg" alt="Preto Fosco">
+    </div>
+    <div class="produto">
+      <label><input type="checkbox" value="Envelopamento Azul Brilhante - R$250"> Envelopamento Azul Brilhante - R$250</label>
+      <img src="img/azulb.jpeg" alt="Azul Brilhante">
+    </div><!-- EXEMPLO PRA VOCÊ COPIAR E ADICIONAR MAIS PRODUTOS -->
+<div class="produto">
+  <label><input type="checkbox" value="NOME DO PRODUTO - R$VALOR"> NOME DO PRODUTO - R$VALOR</label>
+  <img src="img/nome-da-imagem.jpg" alt="Descrição do Produto">
+</div>
+<!-- COPIA ESSE BLOCO ACIMA E VAI MANDANDO VER -->
+
   </div>  <textarea id="obs" placeholder="Observações do pedido (ex: aplicar apenas nos vidros traseiros, colocar brilho, etc)"></textarea><button onclick="enviarPedido()">Finalizar Pedido no WhatsApp</button>
 
   <script>
