@@ -1,84 +1,140 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo SFLCAR</title>
   <style>
-    * { box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f3f3f3; padding: 20px; margin: 0; }
-    h1 { text-align: center; color: #222; margin-bottom: 5px; }
-    h2 { text-align: center; font-size: 16px; margin-top: 0; color: #666; }
-    .logo { display: block; margin: 0 auto 10px; max-width: 150px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .produto { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between; }
-    .produto label { font-size: 18px; margin-bottom: 10px; }
-    .produto img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
-    textarea { width: 100%; height: 80px; margin-top: 20px; padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; resize: none; }
-    button { display: block; width: 100%; padding: 15px; font-size: 18px; border: none; border-radius: 10px; background-color: #25D366; color: white; cursor: pointer; margin-top: 20px; }
-    button:hover { background-color: #1da851; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .produto {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .produto img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      margin: 10px 0;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 5px;
+      margin-top: 10px;
+      resize: vertical;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 25px;
+      font-size: 16px;
+      background: #2ecc71;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #27ae60;
+    }
   </style>
 </head>
 <body>
-  <img src="img/logo.jpg" alt="Logo SFLCAR" class="logo">
+
   <h1>Catálogo SFLCAR</h1>
-  <h2>Escolha os produtos e finalize seu pedido no WhatsApp</h2>  <div class="grid">
+
+  <div class="grid">
+
     <div class="produto">
       <label><input type="checkbox" value="Insulfilme G5"> Insulfilme G5</label>
-      <img src="img/insulescuro.jpg" alt="Insulfilme G5">
     </div>
+
     <div class="produto">
       <label><input type="checkbox" value="Insulfilme G20"> Insulfilme G20</label>
-      <img src="img/insulmedio.jpg" alt="Insulfilme G20">
     </div>
-    <div class="produto">
-      <label><input type="checkbox" value="Insulfilme G35"> Insulfilme G35</label>
-      <img src="img/insulclaro.jpg" alt="Insulfilme G35">
-    </div>
-    <div class="produto">
-      <label><input type="checkbox" value="Envelopamento Preto Fosco"> Envelopamento Preto Fosco</label>
-      <img src="img/pretof.jpeg" alt="Preto Fosco">
-    </div>
-    <div class="produto">
-      <label><input type="checkbox" value="Envelopamento Azul Bebe"> Envelopamento Azul Bebe</label>
-      <img src="img/azulbebe.jpg" alt="Azul Bebe">
-    </div>
-<div class="produto">
-  <label><input type="checkbox" value="Envelopamento Branco"> Envelopamento Branco</label>
-  <img src="img/branco.jpg" alt="Branco">
-</div>
-<div class="produto">
-  <label><input type="checkbox" value="Envelopamento Vermelho"> Envelopamento Vermelho</label>
-  <img src="img/vermelho.jpg" alt="Vermelho">
-</div>
- <div class="produto">
-  <label><input type="checkbox" value="Envelopamento Vinho(Roxo)"> Envelopamento Vinho(Roxo)</label>
-  <img src="img/vinho.jpg" alt="Vinho">
-</div>
-    <div class="produto">
-  <label><input type="checkbox" value="Envelopamento Verde Escuro"> Envelopamento Verde Escuro</label>
-  <img src="img/verdeescuro.jpg" alt="Verde Escuro">
-</div>
-    <div class="produto">
-  <label><input type="checkbox" value="Envelopamento Verde Claro"> Envelopamento Verde Claro</label>
-  <img src="img/verdeclaro.jpg" alt="Verde Claro">
-</div>
 
-  </div>  <textarea id="obs" placeholder="Observações do pedido (ex: aplicar apenas nos vidros traseiros, colocar brilho, etc)"></textarea><button onclick="enviarPedido()">Finalizar Pedido no WhatsApp</button>
+    <div class="produto">
+      <label><input type="checkbox" value="Vinil Preto Fosco"> Vinil Preto Fosco</label>
+    </div>
+
+    <div class="produto">
+      <label><input type="checkbox" value="Vinil Preto Brilhante"> Vinil Preto Brilhante</label>
+    </div>
+
+    <div class="produto">
+      <label><input type="checkbox" id="produtoCatalogo"> Envelopamento Catálogo de Cores</label>
+      <img src="img/catalogo.jpg" alt="Catálogo de Cores">
+      <textarea id="corCatalogo" placeholder="Digite a cor desejada aqui..."></textarea>
+    </div>
+
+  </div>
+
+  <div style="max-width: 600px; margin: 20px auto;">
+    <textarea id="obs" rows="3" placeholder="Observações adicionais..."></textarea>
+  </div>
+
+  <button onclick="enviarPedido()">Enviar Pedido via WhatsApp</button>
 
   <script>
     function enviarPedido() {
       const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
       const obs = document.getElementById('obs').value.trim();
-      if (checkboxes.length === 0) {
+      const pedidoCatalogo = document.getElementById('produtoCatalogo').checked;
+      const corCatalogo = document.getElementById('corCatalogo').value.trim();
+
+      if (checkboxes.length === 0 && !pedidoCatalogo) {
         alert('Escolhe pelo menos um produto');
         return;
       }
+
       let pedido = 'Quero fazer um pedido na SFLCAR:\n';
-      checkboxes.forEach(item => pedido += `- ${item.value}\n`);
-      if (obs) pedido += `\nObservações:\n${obs}`;
-      const mensagem = encodeURIComponent(pedido);
-      const numero = '5562993117821';
-      window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+
+      checkboxes.forEach(item => {
+        if (item.id !== 'produtoCatalogo') {
+          pedido += `- ${item.value}\n`;
+        }
+      });
+
+      if (pedidoCatalogo) {
+        pedido += '- Envelopamento por Catálogo\n';
+        if (corCatalogo) {
+          pedido += `  Cor: ${corCatalogo}\n`;
+        }
+      }
+
+      if (obs) {
+        pedido += `\nObs: ${obs}`;
+      }
+
+      const telefone = '5562993117821';
+      const url = `https://wa.me/${telefone}?text=${encodeURIComponent(pedido)}`;
+      window.open(url, '_blank');
     }
-  </script></body>
+  </script>
+
+</body>
 </html>
