@@ -35,14 +35,29 @@
       <img src="img/pretof.jpeg" alt="Preto Fosco">
     </div>
     <div class="produto">
-      <label><input type="checkbox" value="Envelopamento Azul Brilhante - R$250"> Envelopamento Azul Brilhante</label>
-      <img src="img/azulb.jpeg" alt="Azul Brilhante">
+      <label><input type="checkbox" value="Envelopamento Azul Brilhante - R$250"> Envelopamento Azul Bebe</label>
+      <img src="img/azulbebe.jpeg" alt="Azul Brilhante">
     </div><!-- EXEMPLO PRA VOCÊ COPIAR E ADICIONAR MAIS PRODUTOS -->
 <div class="produto">
   <label><input type="checkbox" value="NOME DO PRODUTO - R$VALOR"> Envelopamento Branco</label>
-  <img src="img/branco.jpg" alt="Descrição do Produto">
+  <img src="img/branco.jpg" alt="Branco">
 </div>
-<!-- COPIA ESSE BLOCO ACIMA E VAI MANDANDO VER -->
+<div class="produto">
+  <label><input type="checkbox" value="NOME DO PRODUTO - R$VALOR"> Envelopamento Vermelho</label>
+  <img src="img/vermelho.jpg" alt="Vermelho">
+</div>
+ <div class="produto">
+  <label><input type="checkbox" value="NOME DO PRODUTO - R$VALOR"> Envelopamento Vinho(Roxo)</label>
+  <img src="img/vinho.jpg" alt="Vinho">
+</div>
+    <div class="produto">
+  <label><input type="checkbox" value="NOME DO PRODUTO - R$VALOR"> Envelopamento Verde Escuro</label>
+  <img src="img/verdeescuro.jpg" alt="Verde Escuro">
+</div>
+    <div class="produto">
+  <label><input type="checkbox" value="NOME DO PRODUTO - R$VALOR"> Envelopamento Verde Claro</label>
+  <img src="img/verdeclaro.jpg" alt="Verde Claro">
+</div>
 
   </div>  <textarea id="obs" placeholder="Observações do pedido (ex: aplicar apenas nos vidros traseiros, colocar brilho, etc)"></textarea><button onclick="enviarPedido()">Finalizar Pedido no WhatsApp</button>
 
@@ -51,7 +66,7 @@
       const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
       const obs = document.getElementById('obs').value.trim();
       if (checkboxes.length === 0) {
-        alert('Escolhe pelo menos um produto, paizão!');
+        alert('Escolhe pelo menos um produto');
         return;
       }
       let pedido = 'Quero fazer um pedido na SFLCAR:\n';
