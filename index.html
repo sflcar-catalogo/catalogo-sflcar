@@ -1,18 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Catálogo SFLCAR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 20px;
-      background: #f4f4f4;
+      background: linear-gradient(to right, #ffffff, #e8f5e9);
+      color: #333;
+    }
+
+    header {
+      background-color: #111;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
+      animation: fadeSlide 1s ease-out;
     }
 
     h1 {
       text-align: center;
+      margin: 30px 0 10px;
+      color: #222;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 40px 0 10px;
+      color: #555;
     }
 
     .grid {
@@ -20,7 +58,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      margin-top: 30px;
+      padding: 10px;
     }
 
     .produto {
@@ -28,8 +66,13 @@
       padding: 15px;
       border-radius: 10px;
       width: 250px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .produto:hover {
+      transform: scale(1.02);
     }
 
     .produto img {
@@ -37,6 +80,7 @@
       max-height: 180px;
       object-fit: cover;
       margin: 10px 0;
+      border-radius: 8px;
     }
 
     textarea {
@@ -44,84 +88,113 @@
       padding: 5px;
       margin-top: 10px;
       resize: vertical;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: 'Poppins', sans-serif;
     }
 
     button {
       display: block;
-      margin: 30px auto 0;
-      padding: 10px 25px;
+      margin: 40px auto 20px;
+      padding: 12px 30px;
       font-size: 16px;
-      background: #2ecc71;
+      background: #25d366;
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
       color: white;
       cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
     }
 
     button:hover {
-      background: #27ae60;
+      background: #1ebe5d;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .produto {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
+  <header>
+    <img src="img/logo.jpg" alt="Logo SFLCAR" />
+  </header>
+
   <h1>Catálogo SFLCAR</h1>
 
+  <h2>Insulfilme</h2>
   <div class="grid">
-
     <div class="produto">
-      <label><input type="checkbox" value="Insulfilme G5"> Insulfilme G5</label>
-      <img src="img/insulescuro.jpg" alt="Isulfilme G5">
+      <label><input type="checkbox" value="Insulfilme G5" /> Insulfilme G5</label>
+      <img src="img/insulescuro.jpg" alt="Insulfilme G5" />
     </div>
 
     <div class="produto">
-      <label><input type="checkbox" value="Insulfilme G20"> Insulfilme G20</label>
-      <img src="img/insulmedio.jpg" alt="Isulfilme G20">
+      <label><input type="checkbox" value="Insulfilme G20" /> Insulfilme G20</label>
+      <img src="img/insulmedio.jpg" alt="Insulfilme G20" />
     </div>
 
     <div class="produto">
-      <label><input type="checkbox" value="Insulfilme G35"> Insulfilme G35</label>
-      <img src="img/insulclaro.jpg" alt="Isulfilme G35">
+      <label><input type="checkbox" value="Insulfilme G35" /> Insulfilme G35</label>
+      <img src="img/insulclaro.jpg" alt="Insulfilme G35" />
+    </div>
+  </div>
+
+  <h2>Envelopamento</h2>
+  <div class="grid">
+    <div class="produto">
+      <label><input type="checkbox" value="Envelopamento Preto" /> Envelopamento Preto</label>
+      <img src="img/preto.jpg" alt="Envelopamento Preto" />
     </div>
 
     <div class="produto">
-      <label><input type="checkbox" value="Envelopamento Preto"> Envelopamento Preto</label>
-      <img src="img/preto.jpg" alt="Preto">
+      <label><input type="checkbox" value="Envelopamento Azul" /> Envelopamento Azul</label>
+      <img src="img/azulbebe.jpg" alt="Envelopamento Azul" />
     </div>
 
     <div class="produto">
-      <label><input type="checkbox" value="Envelopamento Preto"> Envelopamento Azul</label>
-      <img src="img/azulbebe.jpg" alt="Azul">
+      <label><input type="checkbox" value="Envelopamento Branco" /> Envelopamento Branco</label>
+      <img src="img/branco.jpg" alt="Envelopamento Branco" />
     </div>
 
     <div class="produto">
-      <label><input type="checkbox" value="Envelopamento Branco"> Envelopamento Branco</label>
-      <img src="img/branco.jpg" alt="Branco">
+      <label><input type="checkbox" value="Envelopamento Vermelho" /> Envelopamento Vermelho</label>
+      <img src="img/vermelho.jpg" alt="Envelopamento Vermelho" />
     </div>
 
     <div class="produto">
-      <label><input type="checkbox" value="Envelopamento Vermelho"> Envelopamento Vermelho</label>
-      <img src="img/vermelho.jpg" alt="Vermelho">
+      <label><input type="checkbox" value="Envelopamento Verde" /> Envelopamento Verde</label>
+      <img src="img/verdeescuro.jpg" alt="Envelopamento Verde" />
     </div>
 
     <div class="produto">
-      <label><input type="checkbox" value="Envelopamento Verde"> Envelopamento Verde</label>
-      <img src="img/verdeescuro.jpg" alt="Verde">
-    </div>
-
-    <div class="produto">
-      <label><input type="checkbox" id="produtoCatalogo"> Envelopamento Catálogo de Cores</label>
-      <img src="img/catalogo.jpg" alt="Catálogo de Cores">
+      <label><input type="checkbox" id="produtoCatalogo" /> Envelopamento Catálogo de Cores</label>
+      <img src="img/catalogo.jpg" alt="Catálogo de Cores" />
       <textarea id="corCatalogo" placeholder="Digite a cor desejada aqui..."></textarea>
     </div>
-
   </div>
 
   <div style="max-width: 600px; margin: 20px auto;">
-    <textarea id="obs" rows="3" placeholder="Observações adicionais..."></textarea>
+    <textarea id="obs" rows="3" placeholder="Observações adicionais... (ex: só no vidro traseiro)"></textarea>
   </div>
 
-  <button onclick="enviarPedido()">Enviar Pedido via WhatsApp</button>
+  <button onclick="enviarPedido()">📲 Enviar Pedido via WhatsApp</button>
+
+  <footer>
+    SFLCAR © 2025 | Atendimento via WhatsApp: (62) 99311-7821
+  </footer>
 
   <script>
     function enviarPedido() {
@@ -135,7 +208,7 @@
         return;
       }
 
-      let pedido = 'Quero fazer um pedido na SFLCAR:\n';
+      let pedido = 'Quero fazer um pedido:\n';
 
       checkboxes.forEach(item => {
         if (item.id !== 'produtoCatalogo') {
