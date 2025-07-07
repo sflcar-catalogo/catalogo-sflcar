@@ -6,9 +6,7 @@
   <title>Catálogo SFLCAR</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -24,14 +22,8 @@
     }
 
     @keyframes fadeSlide {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     header img {
@@ -41,17 +33,12 @@
       animation: fadeSlide 1s ease-out;
     }
 
-    h1 {
+    h1, h2 {
       text-align: center;
       margin: 30px 0 10px;
-      color: #222;
     }
 
-    h2 {
-      text-align: center;
-      margin: 40px 0 10px;
-      color: #555;
-    }
+    h2 { color: #555; }
 
     .grid {
       display: flex;
@@ -71,9 +58,7 @@
       transition: transform 0.2s ease;
     }
 
-    .produto:hover {
-      transform: scale(1.02);
-    }
+    .produto:hover { transform: scale(1.02); }
 
     .produto img {
       width: 100%;
@@ -120,9 +105,7 @@
     }
 
     @media (max-width: 600px) {
-      .produto {
-        width: 100%;
-      }
+      .produto { width: 100%; }
     }
   </style>
 </head>
@@ -140,12 +123,10 @@
       <label><input type="checkbox" value="Insulfilme G5" /> Insulfilme G5</label>
       <img src="img/insulescuro.jpg" alt="Insulfilme G5" />
     </div>
-
     <div class="produto">
       <label><input type="checkbox" value="Insulfilme G20" /> Insulfilme G20</label>
       <img src="img/insulmedio.jpg" alt="Insulfilme G20" />
     </div>
-
     <div class="produto">
       <label><input type="checkbox" value="Insulfilme G35" /> Insulfilme G35</label>
       <img src="img/insulclaro.jpg" alt="Insulfilme G35" />
@@ -158,27 +139,22 @@
       <label><input type="checkbox" value="Envelopamento Preto" /> Envelopamento Preto</label>
       <img src="img/preto.jpg" alt="Envelopamento Preto" />
     </div>
-
     <div class="produto">
       <label><input type="checkbox" value="Envelopamento Azul" /> Envelopamento Azul</label>
       <img src="img/azulbebe.jpg" alt="Envelopamento Azul" />
     </div>
-
     <div class="produto">
       <label><input type="checkbox" value="Envelopamento Branco" /> Envelopamento Branco</label>
       <img src="img/branco.jpg" alt="Envelopamento Branco" />
     </div>
-
     <div class="produto">
       <label><input type="checkbox" value="Envelopamento Vermelho" /> Envelopamento Vermelho</label>
       <img src="img/vermelho.jpg" alt="Envelopamento Vermelho" />
     </div>
-
     <div class="produto">
       <label><input type="checkbox" value="Envelopamento Verde" /> Envelopamento Verde</label>
       <img src="img/verdeescuro.jpg" alt="Envelopamento Verde" />
     </div>
-
     <div class="produto">
       <label><input type="checkbox" id="produtoCatalogo" /> Envelopamento Catálogo de Cores</label>
       <img src="img/catalogo.jpg" alt="Catálogo de Cores" />
