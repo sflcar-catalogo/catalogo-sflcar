@@ -1,142 +1,124 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Catálogo SFLCAR</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; }body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(to right, #ffffff, #e8f5e9);
+  color: #333;
+}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: linear-gradient(to right, #ffffff, #e8f5e9);
-      color: #333;
-    }
+header {
+  background-color: #111;
+  padding: 0;
+  overflow: hidden;
+}
 
-    header {
-      background-color: #111;
-      padding: 0;
-      overflow: hidden;
-    }
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+header img {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: fadeSlide 1s ease-out;
+}
 
-    header img {
-      width: 100%;
-      height: auto;
-      display: block;
-      animation: fadeSlide 1s ease-out;
-    }
+h1, h2 {
+  text-align: center;
+  margin: 30px 0 10px;
+}
 
-    h1, h2 {
-      text-align: center;
-      margin: 30px 0 10px;
-    }
+h2 { color: #555; }
 
-    h2 { color: #555; }
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
 
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px;
-    }
+.produto {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+  animation: fadeSlide 0.8s ease-out both;
+}
 
-    .produto {
-      background: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      width: 250px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.2s ease;
-    }
+.produto:hover { transform: scale(1.02); }
 
-    .produto:hover { transform: scale(1.02); }
+.produto img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  margin: 10px 0;
+  border-radius: 8px;
+}
 
-    .produto img {
-      width: 100%;
-      max-height: 180px;
-      object-fit: cover;
-      margin: 10px 0;
-      border-radius: 8px;
-    }
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Poppins', sans-serif;
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-family: 'Poppins', sans-serif;
-    }
+button {
+  display: block;
+  margin: 40px auto 20px;
+  padding: 12px 30px;
+  font-size: 16px;
+  background: #25d366;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
 
-    button {
-      display: block;
-      margin: 40px auto 20px;
-      padding: 12px 30px;
-      font-size: 16px;
-      background: #25d366;
-      border: none;
-      border-radius: 30px;
-      color: white;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
+button:hover {
+  background: #1ebe5d;
+  transform: scale(1.05);
+}
 
-    button:hover {
-      background: #1ebe5d;
-      transform: scale(1.05);
-    }
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #aaa;
+  font-size: 14px;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-      color: #aaa;
-      font-size: 14px;
-    }
+.agradecimento {
+  display: none;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+  color: #1c7c2c;
+  font-weight: bold;
+}
 
-    .zap-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background-color: #25d366;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+@media (max-width: 600px) {
+  .produto { width: 100%; }
+}
 
-    .zap-float img {
-      width: 35px;
-      height: 35px;
-    }
-
-    @media (max-width: 600px) {
-      .produto { width: 100%; }
-    }
   </style>
 </head>
-<body>
-
-  <header>
+<body>  <header>
     <img src="img/logo.jpg" alt="Logo SFLCAR" />
-  </header>
-
-  <h1>Catálogo SFLCAR</h1>
-
-  <h2>Insulfilme</h2>
+  </header>  <h1>Catálogo SFLCAR</h1>  <h2>Insulfilme</h2>
   <div class="grid">
     <div class="produto">
       <label><input type="checkbox" value="Insulfilme G5" /> Insulfilme G5</label>
@@ -150,9 +132,7 @@
       <label><input type="checkbox" value="Insulfilme G35" /> Insulfilme G35</label>
       <img src="img/insulclaro.jpg" alt="Insulfilme G35" />
     </div>
-  </div>
-
-  <h2>Envelopamento</h2>
+  </div>  <h2>Envelopamento</h2>
   <div class="grid">
     <div class="produto">
       <label><input type="checkbox" value="Envelopamento Preto" /> Envelopamento Preto</label>
@@ -179,28 +159,16 @@
       <img src="img/catalogo.jpg" alt="Catálogo de Cores" />
       <textarea id="corCatalogo" placeholder="Digite a cor desejada aqui..."></textarea>
     </div>
-  </div>
-
-  <!-- Formulário cliente -->
-  <div style="max-width: 600px; margin: 40px auto;">
+  </div>  <!-- Formulário cliente -->  <div style="max-width: 600px; margin: 40px auto;">
     <h2>Solicitar Orçamento</h2>
     <input type="text" id="nomeCliente" placeholder="Seu nome" />
     <input type="text" id="telCliente" placeholder="Seu WhatsApp (com DDD)" />
     <textarea id="obs" rows="3" placeholder="Observações adicionais... (ex: só no vidro traseiro)"></textarea>
-  </div>
+  </div><button onclick="enviarPedido()">📲 Enviar Pedido via WhatsApp</button>
 
-  <button onclick="enviarPedido()">📲 Enviar Pedido via WhatsApp</button>
-
-  <footer>
+  <div class="agradecimento" id="agradecimento">✅ Seu pedido foi enviado! Aguardamos você no WhatsApp.</div>  <footer>
     SFLCAR © 2025 | Atendimento via WhatsApp: (62) 99311-7821
-  </footer>
-
-  <!-- Botão flutuante WhatsApp -->
-  <a href="https://wa.me/5562993117821" class="zap-float" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-  </a>
-
-  <script>
+  </footer>  <script>
     function enviarPedido() {
       const nome = document.getElementById('nomeCliente').value.trim();
       const tel = document.getElementById('telCliente').value.trim();
@@ -243,14 +211,11 @@
       const telefone = '5562993117821';
       const url = `https://wa.me/${telefone}?text=${encodeURIComponent(pedido)}`;
       window.open(url, '_blank');
-    }
-  </script>
 
-  <!-- contador -->
-  <script src="https://cdn.counter.dev/script.js" 
+      document.getElementById('agradecimento').style.display = 'block';
+    }
+  </script>  <script src="https://cdn.counter.dev/script.js" 
           data-id="3e034ea3-de45-4953-8e5a-5500d621da60" 
           data-utcoffset="-3">
-  </script>
-
-</body>
+  </script></body>
 </html>
