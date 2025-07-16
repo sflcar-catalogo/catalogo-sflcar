@@ -68,11 +68,10 @@
       border-radius: 8px;
     }
 
-    textarea {
+    input, textarea {
       width: 100%;
-      padding: 5px;
+      padding: 10px;
       margin-top: 10px;
-      resize: vertical;
       border-radius: 6px;
       border: 1px solid #ccc;
       font-family: 'Poppins', sans-serif;
@@ -156,17 +155,17 @@
       <img src="img/verdeescuro.jpg" alt="Envelopamento Verde" />
     </div>
      <div class="produto">
-      <label><input type="checkbox" value="Envelopamento Vinho" /> Envelopamento Vinho</label>
-      <img src="img/vinho.jpg" alt="Envelopamento Vinho" />
-     </div>
-    <div class="produto">
       <label><input type="checkbox" id="produtoCatalogo" /> Envelopamento Catálogo de Cores</label>
       <img src="img/catalogo.jpg" alt="Catálogo de Cores" />
       <textarea id="corCatalogo" placeholder="Digite a cor desejada aqui..."></textarea>
     </div>
   </div>
 
-  <div style="max-width: 600px; margin: 20px auto;">
+  <!-- Formulário cliente -->
+  <div style="max-width: 600px; margin: 40px auto;">
+    <h2>Solicitar Orçamento</h2>
+    <input type="text" id="nomeCliente" placeholder="Seu nome" />
+    <input type="text" id="telCliente" placeholder="Seu WhatsApp (com DDD)" />
     <textarea id="obs" rows="3" placeholder="Observações adicionais... (ex: só no vidro traseiro)"></textarea>
   </div>
 
@@ -178,17 +177,24 @@
 
   <script>
     function enviarPedido() {
+      const nome = document.getElementById('nomeCliente').value.trim();
+      const tel = document.getElementById('telCliente').value.trim();
       const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
       const obs = document.getElementById('obs').value.trim();
-      const pedidoCatalogo = document.getElementById('produtoCatalogo').checked;
-      const corCatalogo = document.getElementById('corCatalogo').value.trim();
+      const pedidoCatalogo = document.getElementById('produtoCatalogo')?.checked;
+      const corCatalogo = document.getElementById('corCatalogo')?.value.trim();
 
-      if (checkboxes.length === 0 && !pedidoCatalogo) {
-        alert('Escolhe pelo menos um produto');
+      if (!nome || !tel) {
+        alert('Preencha seu nome e telefone!');
         return;
       }
 
-      let pedido = 'Quero fazer um Orçamento:\n';
+      if (checkboxes.length === 0 && !pedidoCatalogo) {
+        alert('Escolhe pelo menos um produto!');
+        return;
+      }
+
+      let pedido = `Olá, me chamo *${nome}* e quero fazer um orçamento na SFLCAR:\n\n`;
 
       checkboxes.forEach(item => {
         if (item.id !== 'produtoCatalogo') {
@@ -199,19 +205,23 @@
       if (pedidoCatalogo) {
         pedido += '- Envelopamento por Catálogo\n';
         if (corCatalogo) {
-          pedido += `  Cor: ${corCatalogo}\n`;
+          pedido += `  Cor desejada: ${corCatalogo}\n`;
         }
       }
 
       if (obs) {
-        pedido += `\nObs: ${obs}`;
+        pedido += `\nObservações:\n${obs}`;
       }
+
+      pedido += `\n\nMeu WhatsApp: ${tel}`;
 
       const telefone = '5562993117821';
       const url = `https://wa.me/${telefone}?text=${encodeURIComponent(pedido)}`;
       window.open(url, '_blank');
     }
   </script>
+
+  <!-- contador -->
   <script src="https://cdn.counter.dev/script.js" 
           data-id="3e034ea3-de45-4953-8e5a-5500d621da60" 
           data-utcoffset="-3">
